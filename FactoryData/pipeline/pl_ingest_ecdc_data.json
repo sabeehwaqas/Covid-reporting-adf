@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy cases and deaths data",
+				"name": "Copy ecdc data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -48,11 +48,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_http",
+						"referenceName": "ds_ecdc_raw_csv_http",
 						"type": "DatasetReference",
 						"parameters": {
 							"relativeurl": {
-								"value": "@variables('sourcehttpurl')",
+								"value": "@pipeline().parameters.sourceRelativeUrl",
 								"type": "Expression"
 							}
 						}
@@ -64,7 +64,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@variables('sinkfilename')",
+								"value": "@pipeline().parameters.sinkFileName",
 								"type": "Expression"
 							}
 						}
