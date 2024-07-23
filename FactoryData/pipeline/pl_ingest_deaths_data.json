@@ -60,6 +60,15 @@
 				]
 			}
 		],
+		"variables": {
+			"sourcehttpurl": {
+				"type": "String",
+				"defaultValue": "cloudboxacademy/covid19/blob/main/raw/main/ecdc_data/hospital_admissions.csv"
+			},
+			"sinkfilename": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
