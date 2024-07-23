@@ -73,7 +73,7 @@
 			}
 		],
 		"parameters": {
-			"sourceRelativeU": {
+			"sourceRelativeUrl": {
 				"type": "string"
 			}
 		},
