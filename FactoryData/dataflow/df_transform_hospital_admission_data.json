@@ -5,10 +5,6 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "ds_ecdc_raw_csv_dl",
-						"type": "DatasetReference"
-					},
 					"name": "HospitalAdmissionData"
 				}
 			],
@@ -16,8 +12,7 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> HospitalAdmissionData"
+				"     validateSchema: false) ~> HospitalAdmissionData"
 			]
 		}
 	}
