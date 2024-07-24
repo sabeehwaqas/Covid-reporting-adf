@@ -15,7 +15,10 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "select1"
+					"name": "SelectTransformation"
+				},
+				{
+					"name": "lookup1"
 				}
 			],
 			"scriptLines": [
@@ -37,11 +40,14 @@
 				"          date,",
 				"          year_week,",
 				"          value,",
-				"          source,",
-				"          url",
+				"          source",
 				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> SelectTransformation",
+				"SelectTransformation lookup(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1"
 			]
 		}
 	}
