@@ -61,7 +61,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> SelectTransformation",
-				"SelectTransformation, LookupCountry lookup(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"SelectTransformation, LookupCountry lookup(SelectTransformation@country == LookupCountry@country,",
 				"     multiple: false,",
 				"     pickup: 'any',",
 				"     broadcast: 'auto')~> LoopupCountry"
