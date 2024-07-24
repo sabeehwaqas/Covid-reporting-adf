@@ -17,6 +17,9 @@
 						"type": "DatasetReference"
 					},
 					"name": "LookupCountry"
+				},
+				{
+					"name": "DimDateLookup"
 				}
 			],
 			"sinks": [],
@@ -57,6 +60,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> LookupCountry",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> DimDateLookup",
 				"HospitalAdmissionData select(mapColumn(",
 				"          country,",
 				"          indicator,",
