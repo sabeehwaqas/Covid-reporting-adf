@@ -85,7 +85,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> selectReqFields",
-				"selectReqFields split(ERROR_FUNCTION(''),",
+				"selectReqFields split(indicator == 'Weekly new hospital admissions per 100k' || indicator == 'Weekly new ICU admissions per 100k' ,",
 				"     disjoint: false) ~> SplitDailyFromWeekly@(Weekly, Daily)"
 			]
 		}
