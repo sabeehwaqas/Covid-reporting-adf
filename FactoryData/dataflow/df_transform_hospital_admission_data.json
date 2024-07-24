@@ -42,9 +42,6 @@
 				},
 				{
 					"name": "DerviedEcdcYearWeek"
-				},
-				{
-					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -73,13 +70,13 @@
 				"source(output(",
 				"          date_key as date,",
 				"          date as date,",
-				"          year as short,",
+				"          year as string,",
 				"          month as short,",
 				"          day as short,",
 				"          day_name as string,",
 				"          day_of_year as short,",
 				"          week_of_month as short,",
-				"          week_of_year as short,",
+				"          week_of_year as string,",
 				"          month_name as string,",
 				"          year_month as integer,",
 				"          year_week as integer",
@@ -117,23 +114,7 @@
 				"     skipDuplicateMapOutputs: true) ~> selectReqFields",
 				"selectReqFields split(indicator == 'Weekly new hospital admissions per 100k' || indicator == 'Weekly new ICU admissions per 100k' ,",
 				"     disjoint: false) ~> SplitDailyFromWeekly@(Weekly, Daily)",
-				"select1 derive(ecdc_year_week = {_year} + '-W') ~> DerviedEcdcYearWeek",
-				"DimDateLookup select(mapColumn(",
-				"          date_key,",
-				"          date,",
-				"          {_year} = year,",
-				"          month,",
-				"          day,",
-				"          day_name,",
-				"          day_of_year,",
-				"          week_of_month,",
-				"          {_week_of_year} = week_of_year,",
-				"          month_name,",
-				"          year_month,",
-				"          year_week",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"DimDateLookup derive(ecdc_year_week = year + '-W') ~> DerviedEcdcYearWeek"
 			]
 		}
 	}
