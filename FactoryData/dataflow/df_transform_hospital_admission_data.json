@@ -134,6 +134,7 @@
 				"     broadcast: 'auto')~> JoinWithDate",
 				"JoinWithDate pivot(groupBy(value),",
 				"     pivotBy(indicator),",
+				"     {new-col} = sum(value),",
 				"     columnNaming: '$N$V',",
 				"     lateral: true) ~> pivot1"
 			]
