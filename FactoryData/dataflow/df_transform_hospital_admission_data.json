@@ -50,7 +50,10 @@
 					"name": "JoinWithDate"
 				},
 				{
-					"name": "pivot1"
+					"name": "PivotWeekly"
+				},
+				{
+					"name": "PivotDaily"
 				}
 			],
 			"scriptLines": [
@@ -140,8 +143,27 @@
 				"          source),",
 				"     pivotBy(indicator, ['Weekly new hospital admissions per 100k', 'Weekly new ICU admissions per 100k']),",
 				"     count = sum(value),",
-				"     columnNaming: '$N_$V',",
-				"     lateral: true) ~> pivot1"
+				"     columnNaming: '$V_$N',",
+				"     lateral: true) ~> PivotWeekly",
+				"SplitDailyFromWeekly@Daily pivot(groupBy(country,",
+				"          country_code_2_digit,",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION('')),",
+				"     columnNaming: '$N$V',",
+				"     lateral: true) ~> PivotDaily"
 			]
 		}
 	}
