@@ -209,7 +209,7 @@
 				"          Population = population,",
 				"          reported_date,",
 				"          hospital_occupancy_count = {Daily hospital occupancy_count},",
-				"          ICE_occupancy_count = {Daily ICU occupancy_count},",
+				"          icu_occupancy_count = {Daily ICU occupancy_count},",
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
