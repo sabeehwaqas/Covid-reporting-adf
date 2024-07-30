@@ -77,10 +77,10 @@
 					"name": "SortDaily"
 				},
 				{
-					"name": "SelectForSinkWeekly"
+					"name": "SelectWeekly"
 				},
 				{
-					"name": "SelectForSinkDaily"
+					"name": "SelectDaily"
 				}
 			],
 			"scriptLines": [
@@ -201,7 +201,7 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectForSinkWeekly",
+				"     skipDuplicateMapOutputs: true) ~> SelectWeekly",
 				"SortDaily select(mapColumn(",
 				"          country,",
 				"          country_code_2_digit,",
@@ -213,8 +213,8 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectForSinkDaily",
-				"SelectForSinkWeekly sink(allowSchemaDrift: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectDaily",
+				"SelectWeekly sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['HospitalWeeklyData'],",
 				"     truncate: true,",
@@ -224,7 +224,7 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('hash', 1)) ~> SinkWeekly",
-				"SelectForSinkDaily sink(allowSchemaDrift: true,",
+				"SelectDaily sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['HospitalDailyData'],",
 				"     umask: 0022,",
