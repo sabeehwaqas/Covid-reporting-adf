@@ -795,6 +795,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "ecdc/cases_deaths",
 						"fileSystem": "processed"
 					},
 					"columnDelimiter": ",",
