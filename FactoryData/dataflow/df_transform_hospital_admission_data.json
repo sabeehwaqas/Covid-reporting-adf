@@ -33,6 +33,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "SinkWeekly"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_hospital_daily_data",
+						"type": "DatasetReference"
+					},
+					"name": "SinkDaily"
 				}
 			],
 			"transformations": [
@@ -200,7 +207,15 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SinkWeekly"
+				"     skipDuplicateMapOutputs: true) ~> SinkWeekly",
+				"SortDaily sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:[''],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SinkDaily"
 			]
 		}
 	}
