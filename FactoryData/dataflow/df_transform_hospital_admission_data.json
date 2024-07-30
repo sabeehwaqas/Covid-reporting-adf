@@ -32,7 +32,7 @@
 						"referenceName": "ds_weekly_hospital_data",
 						"type": "DatasetReference"
 					},
-					"name": "SinkWeekly"
+					"name": "WeeklySink"
 				},
 				{
 					"dataset": {
@@ -223,7 +223,7 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> SinkWeekly",
+				"     partitionBy('hash', 1)) ~> WeeklySink",
 				"SelectDaily sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['HospitalDailyData'],",
