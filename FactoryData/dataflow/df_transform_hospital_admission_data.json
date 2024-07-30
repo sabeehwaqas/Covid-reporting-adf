@@ -28,6 +28,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "ds_weekly_hospital_data",
+						"type": "DatasetReference"
+					},
 					"name": "SinkWeekly"
 				}
 			],
@@ -188,8 +192,13 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectForSinkWeekly",
-				"SelectForSinkWeekly sink(allowSchemaDrift: true,",
+				"SelectForSinkWeekly sink(allowSchemaDrift: false,",
 				"     validateSchema: false,",
+				"     partitionFileNames:['Hospital'],",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SinkWeekly"
 			]
