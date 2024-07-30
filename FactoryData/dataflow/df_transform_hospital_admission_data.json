@@ -115,8 +115,8 @@
 				"selectReqFields split(indicator == 'Weekly new hospital admissions per 100k' || indicator == 'Weekly new ICU admissions per 100k',",
 				"     disjoint: false) ~> SplitDailyFromWeekly@(Weekly, Daily)",
 				"DimDateLookup aggregate(groupBy(ecdc_year_week = year + '-W' + lpad(week_of_year,2,'0')),",
-				"     column1 = ERROR_FUNCTION(''),",
-				"          column2 = ERROR_FUNCTION('')) ~> AggDimDate"
+				"     week_start_date = ERROR_FUNCTION('min(ecd'),",
+				"          week_end_date = ERROR_FUNCTION('')) ~> AggDimDate"
 			]
 		}
 	}
