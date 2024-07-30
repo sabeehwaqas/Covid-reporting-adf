@@ -176,6 +176,8 @@
 				"          country_code_3_digit,",
 				"          population,",
 				"          reported_year_week,",
+				"          reported_week_start_date = week_start_date,",
+				"          reported_week_end_date = week_end_date,",
 				"          new_hospita_occupany_count = {Weekly new hospital admissions per 100k_count},",
 				"          new_icu_occupany_count = {Weekly new ICU admissions per 100k_count},",
 				"          source",
