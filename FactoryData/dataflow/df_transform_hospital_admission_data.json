@@ -41,9 +41,6 @@
 					"name": "SplitDailyFromWeekly"
 				},
 				{
-					"name": "DerviedEcdcYearWeek"
-				},
-				{
 					"name": "AggDimDate"
 				}
 			],
@@ -117,8 +114,9 @@
 				"     skipDuplicateMapOutputs: true) ~> selectReqFields",
 				"selectReqFields split(indicator == 'Weekly new hospital admissions per 100k' || indicator == 'Weekly new ICU admissions per 100k',",
 				"     disjoint: false) ~> SplitDailyFromWeekly@(Weekly, Daily)",
-				"DimDateLookup derive(ecdc_year_week = year + '-W' + lpad(week_of_year,2,'0')) ~> DerviedEcdcYearWeek",
-				"DerviedEcdcYearWeek aggregate(groupBy(ecdc_year_week = year + '-W' + lpad(week_of_year,2,'0'))) ~> AggDimDate"
+				"DimDateLookup aggregate(groupBy(ecdc_year_week = year + '-W' + lpad(week_of_year,2,'0')),",
+				"     column1 = ERROR_FUNCTION(''),",
+				"          column2 = ERROR_FUNCTION('')) ~> AggDimDate"
 			]
 		}
 	}
