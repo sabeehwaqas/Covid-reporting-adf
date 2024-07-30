@@ -36,7 +36,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_hospital_daily_data",
+						"referenceName": "ds_processed_hospital_admissions_daily",
 						"type": "DatasetReference"
 					},
 					"name": "SinkDaily"
@@ -216,23 +216,18 @@
 				"     skipDuplicateMapOutputs: true) ~> SelectDaily",
 				"SelectWeekly sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['HospitalWeeklyData'],",
-				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> WeeklySink",
+				"     skipDuplicateMapOutputs: true) ~> WeeklySink",
 				"SelectDaily sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['HospitalDailyData'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> SinkDaily"
+				"     skipDuplicateMapOutputs: true) ~> SinkDaily"
 			]
 		}
 	}
