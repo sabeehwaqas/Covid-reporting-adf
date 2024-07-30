@@ -133,7 +133,6 @@
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinWithDate",
 				"JoinWithDate pivot(groupBy(country,",
-				"          reported_date,",
 				"          reported_year_week,",
 				"          source,",
 				"          country_code_2_digit,",
@@ -142,7 +141,7 @@
 				"          ecdc_year_week,",
 				"          week_start_date,",
 				"          week_end_date),",
-				"     pivotBy(indicator, ['Weekly new hospital admissions per 100k', 'Weekly new icu admissions per 100k']),",
+				"     pivotBy(indicator, ['Weekly new hospital admissions per 100k', 'Weekly new ICU admissions per 100k']),",
 				"     {} = sum(value),",
 				"     columnNaming: '$N_$V',",
 				"     lateral: true) ~> pivot1"
