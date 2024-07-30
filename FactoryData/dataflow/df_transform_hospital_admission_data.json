@@ -26,7 +26,11 @@
 					"name": "DimDateLookup"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "SinkWeekly"
+				}
+			],
 			"transformations": [
 				{
 					"name": "SelectTransformation"
@@ -183,7 +187,11 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectForSinkWeekly"
+				"     skipDuplicateMapOutputs: true) ~> SelectForSinkWeekly",
+				"SelectForSinkWeekly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SinkWeekly"
 			]
 		}
 	}
