@@ -48,6 +48,9 @@
 				},
 				{
 					"name": "JoinWithDate"
+				},
+				{
+					"name": "pivot1"
 				}
 			],
 			"scriptLines": [
@@ -128,7 +131,9 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> JoinWithDate"
+				"     broadcast: 'auto')~> JoinWithDate",
+				"JoinWithDate pivot(columnNaming: '$N$V',",
+				"     lateral: true) ~> pivot1"
 			]
 		}
 	}
