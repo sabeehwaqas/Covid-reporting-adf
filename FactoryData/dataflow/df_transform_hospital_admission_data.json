@@ -142,9 +142,9 @@
 				"          ecdc_year_week,",
 				"          week_start_date,",
 				"          week_end_date),",
-				"     pivotBy(indicator, ['hospital-count']),",
-				"     {new-col} = sum(value),",
-				"     columnNaming: '$N$V',",
+				"     pivotBy(indicator, ['Weekly new hospital admissions per 100k', 'Weekly new icu admissions per 100k']),",
+				"     {} = sum(value),",
+				"     columnNaming: '$N_$V',",
 				"     lateral: true) ~> pivot1"
 			]
 		}
