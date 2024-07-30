@@ -133,7 +133,7 @@
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinWithDate",
 				"JoinWithDate pivot(groupBy(value),",
-				"     pivotBy(indicator),",
+				"     pivotBy(indicator, ['hospital-count']),",
 				"     {new-col} = sum(value),",
 				"     columnNaming: '$N$V',",
 				"     lateral: true) ~> pivot1"
