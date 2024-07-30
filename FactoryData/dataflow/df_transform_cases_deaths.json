@@ -110,11 +110,12 @@
 				"     skipDuplicateMapOutputs: false) ~> SelectForSink",
 				"SelectForSink sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['cases_and_deaths.csv'],",
+				"     partitionFileNames:['cases_and_deaths_data'],",
 				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
-				"     postCommands: []) ~> CasesAndDeathsSink"
+				"     postCommands: [],",
+				"     partitionBy('hash', 1)) ~> CasesAndDeathsSink"
 			]
 		}
 	}
