@@ -132,7 +132,8 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinWithDate",
-				"JoinWithDate pivot(columnNaming: '$N$V',",
+				"JoinWithDate pivot(pivotBy(indicator),",
+				"     columnNaming: '$N$V',",
 				"     lateral: true) ~> pivot1"
 			]
 		}
